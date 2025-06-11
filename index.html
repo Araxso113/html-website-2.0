@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Animated UI</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">MySite</div>
+    <nav>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-switch">
+      <span class="switch-thumb"></span>
+    </button>
+  </header>
+  <section class="hero" id="home">
+    <h1 class="fade-in">Welcome to a Modern UI</h1>
+    <p class="fade-in delay-1">Experience smooth animations and a clean design.</p>
+    <a href="#features" class="btn animated-btn fade-in delay-2" style="opacity:1 !important; transform:none !important;">Get Started</a>
+  </section>
+  <section class="features" id="features">
+    <div class="feature-card fade-in">
+      <h2>Fast</h2>
+      <p>Lightning-fast load times and smooth transitions.</p>
+    </div>
+    <div class="feature-card fade-in delay-1">
+      <h2>Responsive</h2>
+      <p>Looks great on any device, big or small.</p>
+    </div>
+    <div class="feature-card fade-in delay-2">
+      <h2>Modern</h2>
+      <p>Clean, minimal, and up-to-date design trends.</p>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 MySite. All rights reserved.</p>
+  </footer>
+  <script>
+    // Theme switcher with animation and localStorage
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      body.classList.add('dark');
+      toggle.classList.add('active');
+    }
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      toggle.classList.toggle('active');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
